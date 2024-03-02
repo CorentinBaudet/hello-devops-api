@@ -6,7 +6,7 @@ fullnameOverride: ""
 
 serviceAccount:
     create: true
-    name: ""
+    name: "hello-devops-api-sa"
 
 imagePullSecrets: 
   - name: github-secret
