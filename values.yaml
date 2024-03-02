@@ -29,8 +29,6 @@ podAnnotations: {
   "helm.sh/hook-delete-policy": hook-succeeded
 }
 
-nameOverride: ""
-fullnameOverride: ""
 affinity: {}
 
 service:
