@@ -17,11 +17,6 @@ spec:
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      # labels:
-      #   {{- include "hello-devops-api.labels" . | nindent 8 }}
-      #   {{- with .Values.podLabels }}
-      #   {{- toYaml . | nindent 8 }}
-      #   {{- end }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -46,27 +41,3 @@ spec:
           # volumeMounts:
           #   {{- toYaml . | nindent 12 }}
           # {{- end }}
-      # {{- with .Values.affinity }}
-      # affinity:
-      #   {{- toYaml . | nindent 8 }}
-      # {{- end }}
-
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: hello-devops-api-deployment
-# spec:
-#   selector:
-#     matchLabels:
-#       app: hello-devops-api
-#   template:
-#     metadata:
-#       labels:
-#         app: hello-devops-api
-#     spec:
-#       serviceAccountName: hello-devops-api-sa
-#       containers:
-#       - name: hello-devops-api
-#         image: ghcr.io/corentinbaudet/hello-devops-api:0.1
-#         ports:
-#         - containerPort: 8080
