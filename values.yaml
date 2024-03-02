@@ -6,7 +6,6 @@ fullname: "hello-devops-api"
 
 serviceAccount:
     create: true
-    name: "hello-devops-api-sa"
 
 imagePullSecrets: 
   - name: github-secret
