@@ -22,4 +22,6 @@
 *.tmproj
 .vscode/
 
+templates/_helpers.tpl
+templates/NOTES.txt
 templates/ingress.yaml
