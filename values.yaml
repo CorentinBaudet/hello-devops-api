@@ -20,6 +20,8 @@ image:
   containerPort: 8080
 
 replicaCount: 2
+autoscaling:
+    enabled: false
 
 podAnnotations: {
   "helm.sh/hook": pre-install,pre-upgrade,
