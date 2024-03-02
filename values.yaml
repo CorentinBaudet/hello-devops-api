@@ -8,11 +8,8 @@ serviceAccount:
     create: true
     name: ""
 
-imagePullSecrets: [
-  {
-    name: github-secret
-  }
-]
+imagePullSecrets: 
+  - name: github-secret
 
 # hello-devops-api configuration
 image:
