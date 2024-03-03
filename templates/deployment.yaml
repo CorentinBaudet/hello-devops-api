@@ -13,7 +13,7 @@ spec:
     metadata:
       {{- with .Values.podAnnotations }}
       labels:
-        {{- toYaml .Values.labels. | nindent 8 }}
+        app: hello-devops-api
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
