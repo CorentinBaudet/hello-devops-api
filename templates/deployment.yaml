@@ -8,7 +8,7 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-      {{- toYaml .Values.selectorLabels | nindent 6 }}
+      app: hello-devops-api
   template:
     metadata:
       {{- with .Values.podAnnotations }}

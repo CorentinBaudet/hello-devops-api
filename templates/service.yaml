@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ .Values.fullname }}-svc
   labels:
-    {{- toYaml .Values.labels | nindent 4 }}
+    app: hello-devops-api
 spec:
   type: {{ .Values.service.type }}
   ports:
