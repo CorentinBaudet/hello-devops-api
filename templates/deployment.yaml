@@ -31,7 +31,5 @@ spec:
             - name: http
               containerPort: {{ .Values.image.containerPort }}
               protocol: TCP
-          livenessProbe:
-            {{- toYaml .Values.livenessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
