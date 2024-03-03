@@ -13,7 +13,7 @@ spec:
     metadata:
       {{- with .Values.podAnnotations }}
       labels:
-        {{- toYaml .Values.selectorLabels | nindent 8 }}
+        {{- toYaml .Values.labels | nindent 8 }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}

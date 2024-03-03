@@ -4,6 +4,8 @@
 name: "hello-devops-api"
 fullname: "hello-devops-api"
 
+labels:
+  app: "hello-devops-api"
 selectorLabels:
   app: "hello-devops-api"
 
