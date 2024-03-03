@@ -36,9 +36,9 @@ podAnnotations: {
 affinity: {}
 
 service:
-  type: NodePort
-  port: 80
-  targetPort: 8080
+  type: LoadBalancer
+  port: 8080
+  loadBalancerIP: 34.49.88.107
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
