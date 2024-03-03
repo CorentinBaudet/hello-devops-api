@@ -4,6 +4,9 @@
 name: "hello-devops-api"
 fullname: "hello-devops-api"
 
+selectorLabels:
+  app: "hello-devops-api"
+
 serviceAccount:
     create: true
 
