@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from socket import gethostname, gethostbyname_ex
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,8 +27,9 @@ SECRET_KEY = "django-insecure-(y906aaa$i1k2jvx2-u_ei4-ibm&ky6kqexk18f+u=vmr6a2k)
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "34.141.172.60",
-]
+    "34.141.172.60", # GCP reserved static IP
+    gethostname(),
+] + list(set(gethostbyname_ex(gethostname())[2]))
 
 
 # Application definition
