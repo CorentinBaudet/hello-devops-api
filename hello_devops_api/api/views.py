@@ -5,10 +5,6 @@ from socket import gethostname, gethostbyname_ex # test
 
 @api_view(['GET'])
 def getHelloDevOps(request):
-    print("gethostname: ") # test
-    print(gethostname()) # test
-    print("IP range: ") # test
-    print(list(set(gethostbyname_ex(gethostname())[2]))) # test
     return Response("Hello DevOps")
 
 @api_view(['GET'])

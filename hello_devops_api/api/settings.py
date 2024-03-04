@@ -28,8 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "34.141.172.60", # GCP reserved static IP
-    gethostname(),
-] + list(set(gethostbyname_ex(gethostname())[2]))
+] + list(set(gethostbyname_ex(gethostname())[2])) # Cluster Internal IP address which requests the API for health check
 
 
 # Application definition
