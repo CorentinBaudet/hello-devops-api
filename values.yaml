@@ -17,7 +17,7 @@ imagePullSecrets:
 
 # hello-devops-api configuration
 image:
-  repository: ghcr.io/corentinbaudet/hello-devops-api
+  repository: gcr.io/clean-it-413707/hello-devops-api
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   # tag: ""
