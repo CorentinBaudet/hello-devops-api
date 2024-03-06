@@ -56,7 +56,7 @@ jobs:
           --tag "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA" \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
           --build-arg GITHUB_REF="$GITHUB_REF" \
-          .
+          ./hello_devops_api
 
     # Push the Docker image to Google Container Registry
     - name: Publish
