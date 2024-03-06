@@ -33,7 +33,7 @@ jobs:
     # Setup gcloud CLI
     - uses: google-github-actions/auth@v2
       with:
-        #project_id: ${{ env.PROJECT_ID }}
+        credentials_json: ${{ secrets.GSA_KEY }}
         service_account: ${{ env.SA_EMAIL }}
         token_format: "access_token"
 
