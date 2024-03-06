@@ -12,6 +12,7 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT }}
+  SA_EMAIL: ${{ secrets.GSA_EMAIL }}
   GKE_CLUSTER: clean-it-cluster    # Add your cluster name here.
   GKE_ZONE: europe-west4-c   # Add your cluster zone here.
   DEPLOYMENT_NAME: hello-devops-api-deployment # Add your deployment name here.
@@ -32,8 +33,9 @@ jobs:
     # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@1bee7de035d65ec5da40a31f8589e240eba8fde5
       with:
-        service_account_key: ${{ secrets.GSA_KEY }}
-        project_id: ${{ env.PROJECT_ID }}
+        #project_id: ${{ env.PROJECT_ID }}
+        service_account: ${{ env.SA_EMAIL }}
+        token_format: "access_token"
 
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
@@ -46,7 +48,6 @@ jobs:
         project_id: ${{ env.PROJECT_ID }}
         cluster_name: ${{ env.GKE_CLUSTER }}
         location: ${{ env.GKE_ZONE }}
-        #use_auth_provider: ${{ secrets.GSA_KEY }}
 
     # Build the Docker image
     - name: Build
