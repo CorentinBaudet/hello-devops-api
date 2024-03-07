@@ -17,7 +17,7 @@ spec:
       serviceAccountName: hello-devops-api-sa
       containers:
         - name: hello-devops-api
-          image: ghcr.io/corentinbaudet/hello-devops-api:1.0.0
+          image: gcr.io/clean-it-413707/hello-devops-api:1.0.0
           pullPolicy: IfNotPresent
           ports:
             - name: http
