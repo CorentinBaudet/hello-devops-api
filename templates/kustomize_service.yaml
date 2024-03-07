@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-devops-api-svc
+  labels:
+    app: hello-devops-api
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    loadBalancerIP: 34.49.88.107
+    protocol: TCP
+    name: http
+  selector:
+    app: hello-devops-api

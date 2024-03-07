@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-devops-api-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-devops-api
+  template:
+    metadata:
+      labels:
+        app: hello-devops-api
+    spec:
+      imagePullSecrets:
+        - name: github-secret
+      serviceAccountName: hello-devops-api-sa
+      containers:
+        - name: hello-devops-api
+          image: ghcr.io/corentinbaudet/hello-devops-api:1.0.0
+          pullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            periodSeconds: 60
