@@ -16,7 +16,7 @@ env:
   GKE_CLUSTER: clean-it-cluster    # Add your cluster name here.
   GKE_ZONE: europe-west4   # Add your cluster zone here.
   DEPLOYMENT_NAME: hello-devops-api-deployment # Add your deployment name here.
-  IMAGE: static-site
+  IMAGE: hello-devops-api
   REGISTRY: gcr.io
   IMAGE_NAME: ${{ github.repository }} # github.repository as <account>/<repo>
 
@@ -65,13 +65,15 @@ jobs:
     # Set up kustomize
     - name: Set up Kustomize
       run: |-
+        cd ./templates
         curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
         chmod u+x ./kustomize
 
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
-        ./templates/kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
-        ./templates/kustomize build . | kubectl apply -f -
+        cd ./templates
+        ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
+        ./kustomize build . | kubectl apply -f -
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide
