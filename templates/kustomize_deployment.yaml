@@ -18,7 +18,7 @@ spec:
       containers:
         - name: hello-devops-api
           image: gcr.io/clean-it-413707/hello-devops-api:1.0.0
-          pullPolicy: IfNotPresent
+          imagePullPolicy: IfNotPresent
           ports:
             - name: http
               containerPort: 8080
