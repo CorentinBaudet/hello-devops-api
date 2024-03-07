@@ -35,7 +35,6 @@ jobs:
       with:
         credentials_json: ${{ secrets.GSA_KEY }}
         service_account: ${{ env.SA_EMAIL }}
-        #token_format: "access_token"
 
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
